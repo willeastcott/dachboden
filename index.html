@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <title>PlayCanvas Web Components - 3D Gaussian Splat</title>
+        <script type="importmap">
+            {
+                "imports": {
+                    "playcanvas": "https://esm.sh/playcanvas@2.2.2/"
+                }
+            }
+        </script>
+        <script type="module" src="https://esm.sh/@playcanvas/web-components@0.1.7/dist/pwc.mjs"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <pc-app antialias="false" depth="false" high-resolution="false" stencil="false">
+            <!-- Assets -->
+            <pc-asset id="camera-controls" src="camera-controls.mjs" preload></pc-asset>
+            <pc-asset id="dachboden" src="dachboden.compressed.ply" preload></pc-asset>
+            <!-- Scene -->
+            <pc-scene>
+                <!-- Camera -->
+                <pc-entity name="camera" position="0 2 3.5">
+                    <pc-camera></pc-camera>
+                    <pc-scripts>
+                        <pc-script
+                            name="cameraControls"
+                            attributes='{
+                                "sceneSize": 5
+                            }'
+                        ></pc-script>
+                    </pc-scripts>
+                </pc-entity>
+                <!-- Splat -->
+                <pc-entity name="splat" rotation="0 0 180">
+                    <pc-splat asset="dachboden"></pc-splat>
+                </pc-entity>
+            </pc-scene>
+        </pc-app>
+        <script type="module" src="ui.mjs"></script>
+    </body>
+</html>

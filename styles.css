@@ -1,0 +1,15 @@
+body {
+    margin: 0; 
+    overflow: hidden; 
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+canvas {
+    touch-action: none;
+    width: 100%;
+    height: 100%;
+}
